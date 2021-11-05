@@ -1,0 +1,15 @@
+6837c93 HEAD@{0}: merge develop: Fast-forward
+93e82c2 HEAD@{1}: checkout: moving from develop to master
+6837c93 HEAD@{2}: commit (merge): merge styles into develop
+e7e1264 HEAD@{3}: merge images: Fast-forward
+e7ebf29 HEAD@{4}: checkout: moving from styles to develop
+e6651e0 HEAD@{5}: commit: edit index.html: add doctype and link to stylesheet file
+cf3b748 HEAD@{6}: commit: new branch 'styles': create styles dir with styles source inside
+e7ebf29 HEAD@{7}: checkout: moving from develop to styles
+e7ebf29 HEAD@{8}: checkout: moving from images to develop
+e7e1264 HEAD@{9}: commit: edit index.html: add doctype and two img source
+c0b3d50 HEAD@{10}: commit: new branch 'images': create images dir with two images
+e7ebf29 HEAD@{11}: checkout: moving from develop to images
+e7ebf29 HEAD@{12}: commit: new branch 'develop': add index.html
+93e82c2 HEAD@{13}: checkout: moving from master to develop
+93e82c2 HEAD@{14}: commit (initial): init commit
