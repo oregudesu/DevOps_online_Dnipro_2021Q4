@@ -6,7 +6,7 @@
 ![screen from terminal where I'm setting up git configs](./images/2.0.png?raw=true)
 ![screen from terminal where I'm setting up git configs](./images/2.1.png)
 
-So, I checked it out:
+	So, I checked it out:
 
  ![screen from terminal where I'm checking out git configs](./images/2.2.png)
  
@@ -15,15 +15,15 @@ So, I checked it out:
 
 ![screen from terminal where I'm generation ssh keys](./images/6.0.png)
 
-and copied the public one to my github profile settings. On my workstation I moved them to a new created key folder:
+	and copied the public one to my github profile settings. On my workstation I moved them to a new created key folder:
 
 ![screen from terminal where I'm moving ssh keys to key folder](./images/6.1.png)
 
-Then I ran the ssh-agent and created a new ssh-identity:
+	Then I ran the ssh-agent and created a new ssh-identity:
 
 ![screen from terminal where I'm running the ssh-agent and ssh-identity](./images/6.2.png)
 
-After that I could finnaly clone my repo to local machine:
+	After that I could finnaly clone my repo to local machine:
  
 ![screen from terminal where I'm clonning my repo](./images/6.3.png)
  
@@ -53,7 +53,7 @@ After that I could finnaly clone my repo to local machine:
 ![screen from terminal where I'm starting to edit the index.html file](./images/14.0.png)
 ![screen from terminal where I'm editing index.html file](./images/14.1.png)
 
-I added doctype and img tags to the index.html, saved it and commited my changes.
+	I added doctype and img tags to the index.html, saved it and commited my changes.
 
 1. I went back to develop branch. Then I created and checked out on styles branch, created styles.css file inside of styles folder and edited it with the vi editor. I commited all changes. This process is similar to making and filling images branch (step 16).
 1. Then I changed my index.html file with vi editor again (step 17):
@@ -64,15 +64,15 @@ I added doctype and img tags to the index.html, saved it and commited my changes
 
 ![screen from terminal where I'm merging images branch to develop](./images/19.0.png)
 
-This merge went good. Then I merged styles branch to develop:
+	This merge went good. Then I merged styles branch to develop:
 
 ![screen from terminal where I'm merging styles branch to develop](./images/19.1.png)
 
-But this one failed with a conflict. I found a confilct file with **git diff** command and changed it:
+	But this one failed with a conflict. I found a confilct file with **git diff** command and changed it:
 
 ![screen from terminal where I'm starting to edit index.html file to resolve merge conflict](./images/19.2.png) ![screen from terminal where I'm editing index.html file](./images/19.3.png)
 
-I resolved this merge conflict and commited to local repo.
+	I resolved this merge conflict and commited to local repo.
 
 1. Then I checked out on master branch and merged develop to it (step 21):
 
@@ -98,7 +98,7 @@ I resolved this merge conflict and commited to local repo.
 
 ![screen from terminal where I'm writing git reflog's result to the task1.1_GIT.txt file](./images/24.png)
 
-And moved it to task1.1 folder (step 25):
+	And moved it to task1.1 folder (step 25):
  
 ![screen from terminal where I'm moving task1.1_GIT.txt file to task1.1 folder](./images/25.png)
 
@@ -109,7 +109,7 @@ And moved it to task1.1 folder (step 25):
 
 1. Devops is the bridge between software development and IT operations. I like the comparison from our mentor, he said that devops engineer is like a superhero in a team. That kind of specialist makes sure that everything's connected towards integration and delivery. (step 27)
 
-And I leave some nekos below, 'cause I like them :)
+	And I leave some nekos below, 'cause I like them :)
 
 ![cat](./images/cat1.jpeg)
 ![cat](./images/cat2.png)
