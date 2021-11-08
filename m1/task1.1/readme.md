@@ -3,7 +3,7 @@
 1. According to first step, git is need to be installed on my workstation. I've already done that, so I can skip it.
 1. I set up git's global configs, such as name, email and core text editor: 
 
-![screen from terminal where I'm setting up git configs](/images/2.0.png)
+![screen from terminal where I'm setting up git configs](/images/2.0.png?raw=true)
 ![screen from terminal where I'm setting up git configs](/images/2.1.png)
 
 So, I checked it out:
