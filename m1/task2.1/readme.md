@@ -1,7 +1,7 @@
-#Module 2 Virtualisation and Cloud Basic#
-##Task 2.1##
+# Module 2 Virtualisation and Cloud Basic
+## Task 2.1
 
-###Part 1###
+### Part 1
 
 1. It's Microsoft Hyper-V and VMware ESX Server.
 2. Main defferences btw Hyper-V and VMware ESX Server:
@@ -9,7 +9,7 @@
  - VMware supports more operation systems than Hyper-V.
  - VMware charges per processor, while Hyper-V pricing is based on CPU's count on each host.
 
-###Part 2###
+### Part 2
 
 1. I've already got VirtualBox installed so I've updated it to the latest version for now (step 1.2):
 
@@ -132,10 +132,10 @@ Then I tested all types of network and created a table of connections:
 
 |  | VM1 <-> VM2 | VM -> Host | Host -> VM | VM -> LAN | LAN -> VM |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| NAT | - | + | - | + | - |
-| Bridget Adapter | + | - | + | + | + |
-| Internal Network | - | - | - | - | - |
-| Host-only Adapter | + | - | + | - | - |
-| NAT Network | + | + | - | + | - |
+| **NAT** | - | + | - | + | - |
+| **Bridget Adapter** | + | - | + | + | + |
+| **Internal Network** | - | - | - | - | - |
+| **Host-only Adapter** | + | - | + | - | - |
+| **NAT Network** | + | + | - | + | - |
 
 
