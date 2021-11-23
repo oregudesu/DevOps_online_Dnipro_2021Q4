@@ -139,3 +139,54 @@ Then I tested all types of network and created a table of connections:
 | **NAT Network** | + | + | - | + | - |
 
 
+13. According to steps 3.1-3.2 I need to examine commands of vmbox cli. To do so I desided to start with information about my installed VM's:
+
+![getting info about installed vm's](./images/13.1.png?raw=true)
+
+But my cmd doesn't see the VMBox tools. I need to add the path to VirtualBox directory to the system path:
+
+![adding the VirtualBox path to the system path](./images/13.2.png?raw=true)
+
+Done! Then I tried to do the vboxmanage command:
+
+![getting info about installed vm's, second attempt](./images/13.3.png?raw=true)
+
+Works perfectly! Lets try to get info about one vm:
+
+![getting info about the first vm](./images/13.4.png?raw=true)
+
+The output's too long so I showed just a part. Lets launch that vm:
+
+![launching the first vm](./images/13.5.png?raw=true)
+
+Yeah, it's started! Lets power it off:
+
+![powering off the first vm](./images/13.6.png?raw=true)
+
+Exactly. What about create one:
+
+![creating a new vm](./images/13.7.png?raw=true)
+
+Then create a medium:
+
+![creating a medium for the new vm](./images/13.8.png?raw=true)
+
+Attach SATA controller to the medium:
+
+![attaching a SATA controller to the medium](./images/13.9.png?raw=true)
+
+And attach IDE controller to the Ubuntu Server iso:
+
+![attaching an IDE controller to the Ubuntu Server iso](./images/13.10.png?raw=true)
+
+Fine! Lets start our new vm and look if os installation go properly:
+
+![launching the new vm](./images/13.11.png?raw=true)
+
+YUMMY! And last command: take a snapshot from the new machine. Lets create a new folder in the new vm:
+
+![creating a new folder in the new vm](./images/13.12.png?raw=true)
+
+And take a snapshot:
+
+![taking a snapshot with recent changes](./images/13.13.png?raw=true)
