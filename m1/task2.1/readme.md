@@ -250,4 +250,4 @@ Let's test connection:
 
 ![testing connection with the newly created vm](./images/3.6.7.png?raw=true)
 
-That's works like a charm!
+That works like a charm!
