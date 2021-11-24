@@ -214,3 +214,40 @@ And take a snapshot:
 6. Then I stopped and destroyed this vm (step 3.7):
 
 ![stopping and destroying the vm](./images/3.5.png?raw=true)
+
+7. According to step 3.8 I need to create my own Vagrant box. For has it done first of all I made another dir:
+
+![creating another dir for vagrant box](./images/3.6.1.png?raw=true)
+
+Then I inited vagrant env from precise64 template and upped newly created vm:
+
+![initiating vagrant env and upping vm](./images/3.6.2.png?raw=true)
+
+Next I connected to the vm with `vagrant ssh` command and did next commands:
+
+`sudo apt-get update` and `sudo apt-get upgrade` - to update all packages currently installed in Linux.
+`sudo apt-get clean` - to clean apt cache.
+`sudo dd if=/dev/zero of=/EMPTY bs=1M` and `sudo rm -f /EMPTY` - to format virtual disk.
+`cat /dev/null > ~/.bash_history && history -c` - to clean bash commands history.
+
+After that I powered off the vm and exported it to a vagrant box:
+
+![exporting vm to a vagrant box](./images/3.6.3.png?raw=true)
+
+Then I added the box into Vagrant:
+
+![adding the box into Vagrant](./images/3.6.4.png?raw=true)
+
+Let's test that box and try to init it. First I need to stop and destroy current vm:
+
+![stopping and destroying current vm](./images/3.6.5.png?raw=true)
+
+Then init and up a new vm from the box:
+
+![initing and upping a vm from the box](./images/3.6.6.png?raw=true)
+
+Let's test connection:
+
+![testing connection with the newly created vm](./images/3.6.7.png?raw=true)
+
+That's works like a charm!
