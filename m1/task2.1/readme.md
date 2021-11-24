@@ -225,9 +225,9 @@ Then I inited vagrant env from precise64 template and upped newly created vm:
 
 Next I connected to the vm with `vagrant ssh` command and did next commands:
 
-`sudo apt-get update` and `sudo apt-get upgrade` - to update all packages currently installed in Linux.
-`sudo apt-get clean` - to clean apt cache.
-`sudo dd if=/dev/zero of=/EMPTY bs=1M` and `sudo rm -f /EMPTY` - to format virtual disk.
+`sudo apt-get update` and `sudo apt-get upgrade` - to update all packages currently installed in Linux.\
+`sudo apt-get clean` - to clean apt cache.\
+`sudo dd if=/dev/zero of=/EMPTY bs=1M` and `sudo rm -f /EMPTY` - to format virtual disk.\
 `cat /dev/null > ~/.bash_history && history -c` - to clean bash commands history.
 
 After that I powered off the vm and exported it to a vagrant box:
