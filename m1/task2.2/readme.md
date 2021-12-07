@@ -155,3 +155,48 @@ And I removed this picture from the bucket:
 
 ![removing the picture from the bucket](./images/39.png?raw=true)
 
+12. I reviewed and repeated the "Register a domain name" step-by-step tutorial, created new static IP address and associated it with a first Centos vm instance (step 13):
+
+![a new static IP address associated with a first Centos vm instance](./images/40.png?raw=true)
+
+I tried to connect to it:
+
+![connection to the instance](./images/41.png?raw=true)
+
+Works fine. 
+For registering a new domain I'm gonna be charged according to billing plans for different domains. 
+
+13. I reviewed and repeated the "Docker basics for Amazon ECS" step-by-step tutorial and have installed the Docker engine on my Linux via [the tutorial](https://docs.docker.com/engine/install/ubuntu/). I ran the hello-world example for verify proper installation:
+
+![running the docker hello-world example](./images/42.png?raw=true)
+
+So, in continue of the tutorial I need to create my own Docker image. Firstly I created a Dockerfile with a `touch Dockerfile` command and put the script from the tutorial inside it.
+Then I ran the docker build command:
+
+![running the docker build command](./images/43.png?raw=true)
+
+And after building I had successfully builded image:
+
+![successfully builded image](./images/44.png?raw=true)
+
+And started it for a test:
+
+![running my docker image](./images/45.png?raw=true)
+![trying to connect to localhost for access the server from the image](./images/46.png?raw=true)
+
+It works! The next thing I need to do is upload my image to the AWS ECR. For do that I created a repo in the ECR and saved output with the uri to the file:
+
+![creating a repo int the ECR](./images/47.png?raw=true)
+
+Then I tagged my image inside my Docker:
+
+![tagging the image inside the Docker](./images/48.png?raw=true)
+
+Logined in to the ECR fom CLI:
+
+![loginning in to the ECR from CLI](./images/49.png?raw=true)
+
+And pushed the image to it:
+
+![pushing the image to ECR](./images/50.png?raw=true)
+
