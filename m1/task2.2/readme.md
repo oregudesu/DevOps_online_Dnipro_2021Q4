@@ -200,3 +200,11 @@ And pushed the image to it:
 
 ![pushing the image to ECR](./images/50.png?raw=true)
 
+14. According to the last step (15) I need to create a public page with my photo, Amazon services list with which I worked and completed aws tutorials and labs. So, first of all I created a static page on my local workstation, then created a new S3 bucket, uploaded my site there. After that with Route53 service I bought the "oregu.link" domain for one year and added a record to my hosted zone to redirect to S3 website: 
+
+![my s3 bucket for website hosting](./images/51.png?raw=true)
+![record in my hosted zone for the oregu.link domain](./images/52.png?raw=true)
+
+So, after all setting up it works:
+
+![testing an access to my site via custom domain](./images/53.png?raw=true)
