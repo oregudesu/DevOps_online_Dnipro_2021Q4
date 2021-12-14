@@ -208,3 +208,5 @@ And pushed the image to it:
 So, after all setting up it works:
 
 ![testing an access to my site via custom domain](./images/53.png?raw=true)
+
+This site can be accessed with that url: [oregu.link](http://oregu.link)
