@@ -114,4 +114,34 @@ Now lets fill them in (step 5):
 ![trying to select and insert data into 'test' table](./images/28.png?raw=true)
 
   As shown above I could not do that because of restrictions. User 'guest' can only select data.
+  
+5. I created two more users for testing another privileges (step 8):
+
+![creating two new users](./images/29.png?raw=true)
+
+So in total I have three new users. For the first one I granted only select privilege to the 'company.test' table in the previous step. For the second I granted select and insert privileges and for the third - only delete privilege:
+
+![granting privileges for new users](./images/30.png?raw=true)
+
+Then I tested it out for the guest1 user:
+
+![testing selection, insertion and deleting info for the guest1](./images/31.png?raw=true)
+
+And for the guest2 user:
+
+![testing selection, insertion and deleting info for the guest2](./images/32.png?raw=true)
+
+As show above users can only do all their grants. 
+
+6. I made a selection from 'mysql.db' table (step 9):
+
+![selecting 'user' column from 'mysql.db' table](./images/33.png?raw=true)
+
+
+
+
+
+
+
+
 
