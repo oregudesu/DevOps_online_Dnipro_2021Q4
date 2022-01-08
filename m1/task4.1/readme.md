@@ -138,10 +138,61 @@ As show above users can only do all their grants.
 ![selecting 'user' column from 'mysql.db' table](./images/33.png?raw=true)
 
 
+### Part 2
 
+1. I backed up my 'company' database (step 10):
 
+![backing up the 'company' database](./images/34.png?raw=true)
 
+2. I dropped the 'test' table from the 'company' database (step 11):
 
+![dropping the 'test' table from the 'company' database](./images/35.png?raw=true)
 
+3. Then I restored the database from backup1.sql (step 12):
 
+![restoring the database](./images/36.png?raw=true)
+
+And checked if the 'test' table is restored:
+
+![checking on the 'test' table](./images/37.png?raw=true)
+
+Yes, it is tho.
+
+4. For transfer my database to the AWS RDS firstly I created a database instance there (step 13):
+
+![creating a database instance on AWS RDS](./images/38.png?raw=true)
+
+Then I got host info: 
+
+![getting a host info from the instance](./images/39.png?raw=true)
+
+I edited source IP in the security group's inbound rule for public access from anywhere:
+
+![editing source IP in the security group's inbound rule](./images/40.png?raw=true)
+
+And tried to connect to the database:
+
+![connecting to remote database](./images/41.png?raw=true)
+
+Yeah, I'm in, the connection's stable. Then I tried to restore my 'company' database:
+
+![trying to resore my database](./images/42.png?raw=true)
+
+But an error appeared. That is because my dump file doesn't have the "create database" statement, so mysql doesn't know what database I'm trying to use. I dumped the 'company' database again with --databases option:
+
+![dumping the 'company' database with --databases option](./images/43.png?raw=true)
+
+And tried to restore db one more time:
+
+![trying to resore my database](./images/44.png?raw=true)
+
+Success!
+
+5. I connected to the remote database and selected all employees with age from 25 to 31 (steps 14-15):
+
+![selecting all employees with age from 25 to 31 from the remote database](./images/45.png?raw=true)
+
+6. I removed the 'test' table and created a dump (step 16):
+
+![dropping the 'test' tabke and dumping the remote 'company' database](./images/46.png?raw=true)
 
