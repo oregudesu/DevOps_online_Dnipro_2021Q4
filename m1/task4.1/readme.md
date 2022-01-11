@@ -196,3 +196,22 @@ Success!
 
 ![dropping the 'test' tabke and dumping the remote 'company' database](./images/46.png?raw=true)
 
+
+### Part 3
+
+1. I created a DynamoDB table (step 17):
+
+![creating a DynamoDB table](./images/47.png?raw=true)
+
+And filled it in (step 18):
+
+![filling in the DynamoDB table with some data](./images/48.png?raw=true)
+
+2. I made the query request to the database for fetching the student with the name 'Matt' (step 19):
+
+![doing a query request to the db](./images/47.png?raw=true)
+
+And made the scan request for fetching all students with grade not less than 3:
+
+![doing a scan request to the db](./images/47.png?raw=true)
+
