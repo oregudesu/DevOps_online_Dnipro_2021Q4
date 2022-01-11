@@ -209,9 +209,9 @@ And filled it in (step 18):
 
 2. I made the query request to the database for fetching the student with the name 'Matt' (step 19):
 
-![doing a query request to the db](./images/47.png?raw=true)
+![doing a query request to the db](./images/49.png?raw=true)
 
 And made the scan request for fetching all students with grade not less than 3:
 
-![doing a scan request to the db](./images/47.png?raw=true)
+![doing a scan request to the db](./images/50.png?raw=true)
 
