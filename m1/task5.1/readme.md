@@ -32,6 +32,7 @@ Like expected, info's been changed.
 I've tried `man` and `info` with `w` command (step 1.5):
 
 ![checking 'man w' command](./images/5.png?raw=true)
+
 ![checking 'info w' command](./images/6.png?raw=true)
 
 As shown below these results are identical, just have a difference in hyperlink's part. Btw command `w` has some keys to use: 
@@ -92,6 +93,7 @@ And all files that start with a digit:
 Then I listed subdirs of the root dir that include only second nested level:
 
 ![command to list subdirs of the root dir](./images/15.png?raw=true)
+
 ![listing subdirs of the root dir](./images/16.png?raw=true)
 
 2. It's a `file` command. There's an example of it's using (step 2.2):
@@ -115,24 +117,24 @@ The difference between relative and absolute paths is that relative paths can be
 
 4. I examined the `ls` command and tested many options. There are some of them (step 2.4):
  - `ls -a` prints all files: whether it's hidden, specific shortcuts or general files:
-![`ls -a` command in action](./images/21.png?raw=true)
-
+	![`ls -a` command in action](./images/21.png?raw=true)
+	**
 
  - `ls -d` prints current directory itself, not it's content:
-![`ls -d` command in action](./images/22.png?raw=true)
-
+	![`ls -d` command in action](./images/22.png?raw=true)
+	**
 
  - `ls -l` prints content with additional information:
-![`ls -l` command in action](./images/23.png?raw=true)
- There are the permission information, the number of links to that file, owner and group information, file size in bytes, last modified time and file or directory name information.
+	![`ls -l` command in action](./images/23.png?raw=true)
+	 There are the permission information, the number of links to that file, owner and group information, file size in bytes, last modified time and file or directory name information.
 
 
  - `ls -s` prints files and directories with their size. If use it with `-h` option it becomes more readable:
-![`ls -s` and `ls -sh` commands in action](./images/24.png?raw=true)
+	![`ls -s` and `ls -sh` commands in action](./images/24.png?raw=true)
 
 
  - `ls -1` prints content in column:
-![`ls -1` command in action](./images/25.png?raw=true)
+	![`ls -1` command in action](./images/25.png?raw=true)
 
 
 5. I created a 'subdir' subdirectory in my 'home' directory and a 'root_info.txt' file. I wrote all information about root's content to that file (step 2.5):
