@@ -199,11 +199,13 @@ Just as described in step 2.7 I've searched in the filesystem by 'squid' and 'tr
 And files that contain 'ss' sequence by using `find` command (step 2.11):
 
 ![finding all files in the '/etc/' dir that contain 'ss' sequence by using `find` command](./images/42.png?raw=true)
+
 ![finding all files in the '/etc/' dir that contain 'ss' sequence by using `find` command](./images/43.png?raw=true)
 
 I didn't find the way to search it by using only `grep` command, but with the `tree` command:
 
 ![finding all files in the '/etc/' dir that contain 'ss' sequence by using `tree` and `grep` commands](./images/44.png?raw=true)
+
 ![finding all files in the '/etc/' dir that contain 'ss' sequence by using `tree` and `grep` commands](./images/45.png?raw=true)
 
 11. I wrote '/etc/' dir's content to a '~/etc_content.txt' file using stream redirection operation (step 2.12):
@@ -213,6 +215,7 @@ I didn't find the way to search it by using only `grep` command, but with the `t
 Then I red it screen by screen using `more` command:
 
 ![reading the '~/etc_content.txt' file screen by screen using `more` command](./images/47.png?raw=true)
+
 ![reading the '~/etc_content.txt' file screen by screen using `more` command](./images/48.png?raw=true)
 
 12. Devices are interfaces to actual drivers. I listed all devices by using `ls -l /dev` command(step 2.13):
