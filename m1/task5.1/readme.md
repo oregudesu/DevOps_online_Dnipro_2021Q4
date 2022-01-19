@@ -100,10 +100,10 @@ Then I listed subdirs of the root dir that include only second nested level:
 
 3. There are some commands that help navigating the file system (step 2.3):
  - `ls` - uses to check a list of files in current or specific directory:
- ![`ls` command in action](./images/18.png?raw=true)
+![`ls` command in action](./images/18.png?raw=true)
 
  - `cd` - uses to change a directory to another:
- ![`cd` command in action](./images/19.png?raw=true)
+![`cd` command in action](./images/19.png?raw=true)
 
 Home directory can be reached from anywhere by using the `cd ~` command:
 
@@ -113,20 +113,20 @@ The difference between relative and absolute paths is that relative paths can be
 
 4. I examined the `ls` command and tested many options. There are some of them (step 2.4):
  - `ls -a` prints all files: whether it's hidden, specific shortcuts or general files:
- ![`ls -a` command in action](./images/21.png?raw=true)
+![`ls -a` command in action](./images/21.png?raw=true)
 
  - `ls -d` prints current directory itself, not it's content:
- ![`ls -d` command in action](./images/22.png?raw=true)
+![`ls -d` command in action](./images/22.png?raw=true)
 
  - `ls -l` prints content with additional information:
- ![`ls -l` command in action](./images/23.png?raw=true)
+![`ls -l` command in action](./images/23.png?raw=true)
  There are the permission information, the number of links to that file, owner and group information, file size in bytes, last modified time and file or directory name information.
 
  - `ls -s` prints files and directories with their size. If use it with `-h` option it becomes more readable:
- ![`ls -s` and `ls -sh` commands in action](./images/24.png?raw=true)
+![`ls -s` and `ls -sh` commands in action](./images/24.png?raw=true)
 
  - `ls -1` prints content in column:
- ![`ls -1` command in action](./images/25.png?raw=true)
+![`ls -1` command in action](./images/25.png?raw=true)
 
 5. I created a 'subdir' subdirectory in my 'home' directory and a 'root_info.txt' file. I wrote all information about root's content to that file (step 2.5):
 
@@ -177,16 +177,16 @@ Just as described in step 2.7 I've searched in the filesystem by 'squid' and 'tr
 
 8. There are several ways to check on system mounts (step 2.8):
  - by using the `cat /proc/mounts` command: 
- ![`cat /proc/mounts` command in action](./images/36.png?raw=true)
+![`cat /proc/mounts` command in action](./images/36.png?raw=true)
  
  - by using the `mount` command:
- ![`mount` command in action](./images/37.png?raw=true)
+![`mount` command in action](./images/37.png?raw=true)
  
  - by using the `df -aTh` command:
- ![`df -aTh` command in action](./images/38.png?raw=true)
+![`df -aTh` command in action](./images/38.png?raw=true)
  
  - by using the `findmnt` command:
- ![`findmnt` command in action](./images/39.png?raw=true)
+![`findmnt` command in action](./images/39.png?raw=true)
 
 9. I filled in the 'learning/test.txt' file with some rows and searched with `grep` command by 'there' sequence in it (step 2.9):
 
