@@ -182,7 +182,7 @@ Just as described in step 2.7 I've searched in the filesystem by 'squid' and 'tr
  - by using the `mount` command:
  ![`mount` command in action](./images/37.png?raw=true)
  
- - by using the `df -aTh`
+ - by using the `df -aTh` command:
  ![`df -aTh` command in action](./images/38.png?raw=true)
  
  - by using the `findmnt` command:
