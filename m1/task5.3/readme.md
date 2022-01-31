@@ -256,11 +256,36 @@ But the server's still refusing my connection, now because it doesn't allow the 
 
 And everything works!
 
+3. There are four different types of SSH keys available:
 
+- **DSA** (Digital Signature Algorithm) key: no longer allowed by default in OpenSSH 7.0+ versions because it's mathematically broken.
+- **RSA** (Rivest-Shamir-Adleman) encryption:
 
+![implementing the rsa encryption key](./images/48.png?raw=true)
 
+It's 1024-bit version should not be used in new systems because the attack may be possible to extend to RSA as well as DSA. Better use at least 3072-bit length key provides a security for at least 10 years. 15360-bit length key provides a security for 30 to 50 years.
 
+- **ECDSA** (Elliptic Curve Digital Signature Algorithm, available in OpenSSH 5.7+):
 
+![implementing the rsa encryption key](./images/49.png?raw=true)
 
+- **Ed25519** (Edwards-curve Digital Signature Algorithm variant using Curve25519):
 
+![implementing the rsa encryption key](./images/50.png?raw=true)
+
+160-bit length ECDSA/Ed25519 key better don't use. 256-bit ECDSA/Ed25519 key provides security for 10 years, 521-bit length - for 50 years.
+
+4. First of all I enabled the AllowTcpForwarding property in sshd_config:
+
+![enabling the AllowTcpForwarding property in sshd_config](./images/51.png?raw=true)
+
+Then I changed the network type of this workstation to NAT and added port forwarding rule for my custom ssh port that I set up early: 
+
+![adding the port forwarding rule](./images/52.png?raw=true)
+
+I rebooted the machine. Then tried to connect to the machine from win10 host:
+
+![connecting to the workstation](./images/53.png?raw=true)
+
+It works!
 
