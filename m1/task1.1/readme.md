@@ -4,6 +4,7 @@
 2. I set up git's global configs, such as name, email and core text editor: 
 
 ![screen from terminal where I'm setting up git configs](./images/2.0.png?raw=true)
+
 ![screen from terminal where I'm setting up git configs](./images/2.1.png)
 
 So, I checked it out:
@@ -51,6 +52,7 @@ After that I could finnaly clone my repo to local machine:
 11. Then I started editing index.html file with vi editor (I've never used it before, so decided to learn) (step 14):
 
 ![screen from terminal where I'm starting to edit the index.html file](./images/14.0.png)
+
 ![screen from terminal where I'm editing index.html file](./images/14.1.png)
 
 I added doctype and img tags to the index.html, saved it and commited my changes.
@@ -70,7 +72,9 @@ This merge went good. Then I merged styles branch to develop:
 
 But this one failed with a conflict. I found a confilct file with **git diff** command and changed it:
 
-![screen from terminal where I'm starting to edit index.html file to resolve merge conflict](./images/19.2.png) ![screen from terminal where I'm editing index.html file](./images/19.3.png)
+![screen from terminal where I'm starting to edit index.html file to resolve merge conflict](./images/19.2.png) 
+
+![screen from terminal where I'm editing index.html file](./images/19.3.png)
 
 I resolved this merge conflict and commited to local repo.
 
@@ -81,13 +85,21 @@ I resolved this merge conflict and commited to local repo.
 16. In the step 22 I've been playing around with git log command:
 
 ![screen from terminal where I'm playing with git log command](./images/22.0.png)
+
 ![screen from terminal where I'm playing with git log command](./images/22.1.png)
+
 ![screen from terminal where I'm playing with git log command](./images/22.2.png)
+
 ![screen from terminal where I'm playing with git log command](./images/22.3.png)
+
 ![screen from terminal where I'm playing with git log command](./images/22.4.png)
+
 ![screen from terminal where I'm playing with git log command](./images/22.5.png)
+
 ![screen from terminal where I'm playing with git log command](./images/22.6.png)
+
 ![screen from terminal where I'm playing with git log command](./images/22.7.png)
+
 ![screen from terminal where I'm playing with git log command](./images/22.8.png)
 
 17. I pushed all my changes from previous steps to remote repo (step 23):
@@ -105,6 +117,7 @@ And moved it to task1.1 folder (step 25):
 19. I created the readme.md file and started editing it in the notepad++ editor (step 26):
 
 ![screen from terminal where I'm creating the readme.md file](./images/26.0.png)
+
 ![screen from terminal where I'm starting to edit the readme.md file](./images/26.1.png)
 
 20. Devops is the bridge between software development and IT operations. I like the comparison from our mentor, he said that devops engineer is like a superhero in a team. That kind of specialist makes sure that everything's connected towards integration and delivery. (step 27)
@@ -112,4 +125,5 @@ And moved it to task1.1 folder (step 25):
 And I leave some nekos below, 'cause I like them :)
 
 ![cat](./images/cat1.jpeg)
+
 ![cat](./images/cat2.png)

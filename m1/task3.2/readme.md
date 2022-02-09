@@ -7,6 +7,7 @@
 1. I builded Internet network by connecting 3 PT-Empty routers with each other. But before that I inserted 5 1CGE modules in them:
 
 ![5 inserted 1CGE modules in a router](./images/1.png?raw=true)
+
 ![Internet network between three local networks](./images/2.png?raw=true)
 
 2. I've substituted my birthday's information to the formula in the step 2 and got the IP address for my Internet: 38.4.98.0/24. Then I divided it into 4 /26-subnetworks. Why 4? Because dividing /24-subnet to /26-subnets leaves only 64 addresses for each /26-subnet. Thus 256 / 64 = 4. 
@@ -38,7 +39,9 @@ All pinged well.
 1. I checked the connection between servers in Data Center network (step 6):
 
 ![checking connection between Web Server 1 and Web Server 2](./images/6.png?raw=true)
+
 ![checking connection between Web Server 2 and Web Server 3](./images/7.png?raw=true)
+
 ![checking connection between Web Server 3 and Web Server 1](./images/8.png?raw=true)
 
 2. According to step 7 I've changed the subnet mask for the servers to 255.255.255.192 and tried to ping and tracert Web Server 2 from Web Server 1:

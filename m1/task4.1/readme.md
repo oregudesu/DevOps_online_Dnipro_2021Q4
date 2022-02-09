@@ -29,14 +29,19 @@ And I totally forgot to specify an 'age' column in 'employees' table, so I did i
 So in overall there are five tables in the 'company' database:
 
 ![tables in the 'company' database](./images/6.png?raw=true)
+
 ![definition of tables from 'company' database](./images/7.png?raw=true)
 
 Now lets fill them in (step 5):
 
 ![the 'employees' table](./images/8.png?raw=true)
+
 ![the 'teams' table](./images/9.png?raw=true)
+
 ![the 'team_employees' table](./images/10.png?raw=true)
+
 ![the 'projects' table](./images/11.png?raw=true)
+
 ![the 'project_teams' table](./images/12.png?raw=true)
 
 3. Let's get positions count of employees that less than 30 years old from team #1 and show it in descending order (step 6):

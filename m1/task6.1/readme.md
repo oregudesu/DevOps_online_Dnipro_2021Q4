@@ -21,7 +21,7 @@ For the first one I did it with the `ifconfig` command:
 
 ![configuring internal network interface for the first machine](./images/6.png?raw=true)
 
-And for the second machine I edited network config file because it doesn't have the 'ifconfig' package:
+And for the second machine I edited network config (`/etc/netplan/00-installer-config.yaml`) file because it doesn't have the 'ifconfig' package:
 
 ![configuring internal network interface for the second machine](./images/7.png?raw=true)
 

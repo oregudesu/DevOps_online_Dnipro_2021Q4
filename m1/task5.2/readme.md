@@ -63,6 +63,7 @@ I used `-m` key so that user's created with their home directory. Then I created
 Yes, it changed username, but didn't change user's home directory and default shell. To change 'em I ran these commands:
 
 ![changing user's home directory](./images/7.png?raw=true)
+
 ![changing user's default shell](./images/8.png?raw=true)
 
 And I tried to log in as new user:
@@ -138,8 +139,11 @@ And let's add the executable access rights of this file with the `chmod` command
 Let's test it out. But I can do this only from a new user, so I'll create him, add to the 'oregu' group, log in as him and try to remove the file:
 
 ![creating a new user](./images/22.png?raw=true)
+
 ![adding the user to 'oregu' group](./images/23.png?raw=true)
+
 ![logging in as new user](./images/24.png?raw=true)
+
 ![trying to remove the '123.txt'](./images/25.png?raw=true)
 
 There are two more bits: **setuid** and **setguid**. The setuid bit allows users to execute file with privileges of it's owner. To set this bit you can run `chmod u+s file` command. 

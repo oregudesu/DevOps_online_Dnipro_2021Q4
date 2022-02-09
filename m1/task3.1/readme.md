@@ -29,6 +29,7 @@ I renamed all devices so their names on further screens are different.
 4. I changed an adapter in Client3 device to wireless and set a static IP address to it (steps 6-7):
 
 ![wireless connection for Client3 device](./images/6.png?raw=true)
+
 ![static IP address for Client3 device](./images/7.png?raw=true)
 
 Then I pinged wifi-router from Client3 device in Home Office network (step 8):

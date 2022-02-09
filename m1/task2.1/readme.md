@@ -39,8 +39,11 @@
 8. I exported vm appliance as an .ovi file to my host machine disk. Then I imported it like a new vm (step 2.1.9): 
 
 ![settings before export](./images/2.9.1.png?raw=true)
+
 ![exporting process](./images/2.9.2.png?raw=true)
+
 ![settings before import](./images/2.9.3.png?raw=true)
+
 ![my new imported vm](./images/2.9.4.png?raw=true)
 
 9. I explored VM configurations options (step 2.2.1):
@@ -76,7 +79,7 @@ There we go. Now let's check on files on the drive:
 
 ![configuring usb settings](./images/2.10.5.png?raw=true)
 
-Yeah, that's exactly what it have!
+Yeah, that's exactly what it has!
 
 11. For setting up the shared folder (step 2.2.3) first of all I created this folderon my host machine. I called it "test_folder_for_vm" and created a readme.txt file inside. 
 Then I specify a path to that folder in the Shared Folder settings for my vm:

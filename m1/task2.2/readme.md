@@ -33,6 +33,7 @@ Then I picked t2.micro tier with eligible free benefit:
 After that I went throught next steps and created a key-value tag for the instance. I also created a new ssh-key pair for remote access via ssh and downloaded it. Then I launched the instance: 
 
 ![process of initiating instance launches](./images/6.png?raw=true)
+
 ![successfully created instance](./images/7.png?raw=true)
 
 One more thing: I enabled Free Tier Usage alerts for notifying me by aws when the tier hits free borders:
@@ -52,6 +53,7 @@ It works just fine!
 Then I went to "Elastic Block Store - Volumes" menu, selected my volume and in actions hitted a "Create snapshot" action, filled in the description and added tag:
 
 ![creating a snapshot](./images/11.png?raw=true)
+
 ![adding some info to snapshot's properties](./images/12.png?raw=true)
 
 And here it is, in the "Snapshots" submenu:
@@ -97,6 +99,7 @@ And connected to it for a check:
 Then I went to "Elastic Block Store - Volumes", detached the Disk_d volume from first instance and attached to second:
 
 ![detaching the volume from the vm](./images/23.png?raw=true)
+
 ![attaching the volume to another vm](./images/24.png?raw=true)
 
 And checked for a file I downloaded to it:
@@ -128,7 +131,9 @@ And, finally, I created a DNS zone for that website:
 11. I reviewed and repeated the "S3 Store and Retrieve File" step-by-step tutorial and have installed AWS CLI to my Ubuntu Linux (step 12):
 
 ![downloading and unzipping aws cli archive](./images/31.png?raw=true)
+
 ![installing aws cli](./images/32.png?raw=true)
+
 ![checking on aws cli version](./images/33.png?raw=true)
 
 Then I've configured the aws cli for make it prepared for using:
@@ -182,6 +187,7 @@ And after building I had successfully builded image:
 And started it for a test:
 
 ![running my docker image](./images/45.png?raw=true)
+
 ![trying to connect to localhost for access the server from the image](./images/46.png?raw=true)
 
 It works! The next thing I need to do is upload my image to the AWS ECR. For do that I created a repo in the ECR and saved output with the uri to the file:
@@ -203,6 +209,7 @@ And pushed the image to it:
 14. According to the last step (15) I need to create a public page with my photo, Amazon services list with which I worked and completed aws tutorials and labs. So, first of all I created a static page on my local workstation, then created a new S3 bucket, uploaded my site there. After that with Route53 service I bought the "oregu.link" domain for one year and added a record to my hosted zone to redirect to S3 website: 
 
 ![my s3 bucket for website hosting](./images/51.png?raw=true)
+
 ![record in my hosted zone for the oregu.link domain](./images/52.png?raw=true)
 
 So, after all setting up it works:
