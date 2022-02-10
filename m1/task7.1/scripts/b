@@ -1,5 +1,6 @@
 #!/bin/bash
 
+RED='\033[0;31m'
 ORANGE='\033[0;33m'
 NC='\033[0m' 
 
@@ -62,13 +63,17 @@ getSearchBotsInfo () {
 
 
 if [ -n "$1" ]; then
-	getMostRequestedByIp "$1"
-	getMostRequestedByPage "$1"
-	getRequestsCount "$1"
-	getNonExistentErrorPages "$1"
-	getMostRequestedByTime "$1"
-	getSearchBotsInfo "$1"
-else
-	echo "Use: $0 /path/to/file.txt"
+	if [ -d "$1" ]; then
+		echo -e ${RED}"$1 is not a file!"${NC}
+	else
+		getMostRequestedByIp "$1"
+		getMostRequestedByPage "$1"
+		getRequestsCount "$1"
+		getNonExistentErrorPages "$1"
+		getMostRequestedByTime "$1"
+		getSearchBotsInfo "$1"
+	fi
+else 
+	echo "Use: $0 /path/to/apache_log_file.txt"
 fi
 

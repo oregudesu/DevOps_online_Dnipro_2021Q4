@@ -9,7 +9,7 @@ LOG_FILE="/var/log/$script_name"
 
 
 createLogFileIfNotExists() {
-	if ! [ -f LOG_FILE ]; then
+	if ! [ -f $LOG_FILE ]; then
 		echo -n "Creating log file.."
 		sudo bash -c "touch $LOG_FILE"
 		echo "Done => $LOG_FILE"
@@ -18,7 +18,7 @@ createLogFileIfNotExists() {
 
 addToLog() {
 	date=$(date +"%Y-%m-%d %T")
-	line="[$date] added:[$1] rewrote:[$(echo $2)]"
+	line="[$date] added:[$1] rewrote:[$(echo $2)] from:$(realpath $3) to:$(realpath $4)"
 	sudo bash -c "echo $line >> $LOG_FILE"
 }
 
@@ -29,17 +29,12 @@ backupData() {
 	# backslash's used to force overwriting files
 	{`\\cp -R $1/. $2/`} &> /dev/null
 	echo "Done"
-	addToLog "$new_files" "$identical_files"
-}
-
-createCronTabIfNotExists() {
-	{`! (crontab -l | grep -q "$(realpath $0) $1 $2") && (crontab -l; echo "* * * * * $(realpath $0) $1 $2") | crontab -`} &> /dev/null
+	addToLog "$new_files" "$identical_files" "$1" "$2"
 }
 
 runBackupProcess() {
 	createLogFileIfNotExists
 	backupData "$1" "$2"
-	createCronTabIfNotExists "$1" "$2"
 }
 
 
@@ -52,7 +47,7 @@ else
 		paths=()
 		for ((i=0; i<2; i++)) do
 			if ! [ -d "$1" ]; then
-				echo -e ${RED}"option"$((++i))": $1 is not a directory"${NC}
+				echo -e ${RED}"option"$((i+1))": $1 is not a directory"${NC}
 			else
 				paths[i]=$1
 			fi
