@@ -1,0 +1,74 @@
+#!/bin/bash
+
+# print colors
+RED='\033[0;31m'
+ORANGE='\033[0;33m'
+NC='\033[0m' 
+
+# keys definition
+declare -A keys=( 
+	["--all"]="displays the IP addresses and symbolic names of all hosts in the current subnet" 
+	["--target"]="displays a list of open system TCP ports"
+)
+
+getAllInterfacesHostIps() {
+	ips=`ip -o -f inet addr show | awk '/scope global/ {print $4}'`
+	echo "$ips"
+}
+
+displayHelp(){
+	echo "List of available keys:"
+	for key in "${!keys[@]}"; do
+		echo "$key - ${keys[$key]}"
+	done
+}
+
+displayAllIps() {
+	ips=$(getAllInterfacesHostIps)
+	for ip in "$ips"; do
+		subnet_ips=`nmap -sn $ip | awk '/scan report for/ {print $5 " = " $6}' | sed 's/[\(|\)]//g'`
+		echo -e "Hosts in ${ORANGE}$ip${NC} subnet:\n$subnet_ips"
+	done
+}
+
+
+displayOpenTCPports() {
+  ips=$(getAllInterfacesHostIps)
+  for ip in "$ips"; do
+  	ip_address=`echo $ip | cut -d/ -f 1`
+		ports=`sudo nmap -sT -p- $ip_address | awk '/\/tcp/'`
+		echo -e "Open tcp ports for ${ORANGE}$ip${NC} address:\n $ports"
+  done
+}
+
+if [ -z "$1" ]; then
+	displayHelp
+	exit
+fi
+
+nmap_package=`which nmap`
+if [ -z "$nmap_package" ]; then
+	echo -n "Installing 'nmap' package.."
+	{`sudo apt-get install nmap`} &> /dev/null
+	echo "Done"
+fi
+
+while [ -n "$1" ]; do
+	case $1 in
+	
+	--all)
+		displayAllIps
+	;;
+	
+	--target)
+		displayOpenTCPports
+	;;
+	
+	*)
+		echo -e "${RED}Key $1 is not recognized${NC}"
+		displayHelp
+	;;
+	esac
+	shift
+done
+

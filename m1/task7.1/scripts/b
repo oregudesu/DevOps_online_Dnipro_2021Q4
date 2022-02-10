@@ -1,0 +1,74 @@
+#!/bin/bash
+
+ORANGE='\033[0;33m'
+NC='\033[0m' 
+
+
+getMostRequested() {
+	data=`cut -d' ' -f$2 $1 | sort | uniq -c | awk '{print $1 " " $2}' | sort -rn -k1 | head -n 1`
+	echo $data
+}
+
+getMostRequestedByIp() {
+	ip_data=$(getMostRequested "$1" 1)
+	readarray -d ' ' -t ip_data <<<"$ip_data"
+	echo -e "1. The most resquests ("${ip_data[0]}") are from "${ORANGE}${ip_data[1]}${NC}"ip address"
+}
+
+getMostRequestedByPage() {
+	page_data=$(getMostRequested "$1" 7)
+	readarray -d ' ' -t page_data <<<"$page_data"
+	echo -e "2. The most requested ("${page_data[0]}") page is "${ORANGE}${page_data[1]}${NC}
+}
+
+getRequestsCount() {
+	requests_data=`cut -d' ' -f1 $1 | sort | uniq -c | awk '{print $1 " " $2}' | sort -rn -k1`
+	echo "3. Requests counts information:"
+	while read -r line; do
+		line=($line)
+		echo -e "\tfrom "${ORANGE}${line[1]}${NC}" address - "${line[0]}" requests"
+	done <<< "$requests_data"
+}
+
+getNonExistentErrorPages() {
+	log_data=`awk '/\/error404/ {print $0}' $1`
+	echo "4. 404 pages:"
+	while read -r line; do
+		ip_address=$(echo $line | cut -d' ' -f1)
+		# last command (tr -d '\r') serves to fix displaying of text parts in erratic order by echo
+		page=$(echo $line | cut -d'+' -f3 | sed 's/[\"\)]//g' | tr -d '\r')
+		echo -e "\t"${ORANGE}$ip_address${NC}" ip refers to \""$page"\" page"
+	done <<< "$log_data"
+}
+
+getMostRequestedByTime () {
+	time_data=$(getMostRequested "$1" 4)
+	readarray -d ' ' -t time_data <<<"$time_data"
+	datetime=$(echo ${time_data[1]} | sed 's/[\[]//g')
+	date=$(echo $datetime | cut -d: -f 1)
+	time=$(echo $datetime | cut -d: -f 2-)
+	echo -e "5. The greatest count of requests ("${time_data[0]}") were sended on "${ORANGE}$date${NC}" at "${ORANGE}$time${NC}
+}
+
+getSearchBotsInfo () {
+	bot_types=`awk -F';' '{if ($2 ~ "bot" || $2 ~ "Bot") {print $2;} else if ($3 ~ "bot" || $3 ~ "Bot") {print $3}}' $1 | sort | uniq -c`
+	echo "6. Bot statistics:"
+	while read -r line; do
+		line=($line)
+		ips_data=$(awk -v bot=${line[1]} '{if ($0 ~ bot) {print $1","}}' $1)
+		echo -e "\tBot "${ORANGE}${line[1]}${NC}" was accessed "${ORANGE}${line[0]}${NC}" times by these ips:\n["$ips_data"]"
+	done <<< "$bot_types"
+}
+
+
+if [ -n "$1" ]; then
+	getMostRequestedByIp "$1"
+	getMostRequestedByPage "$1"
+	getRequestsCount "$1"
+	getNonExistentErrorPages "$1"
+	getMostRequestedByTime "$1"
+	getSearchBotsInfo "$1"
+else
+	echo "Use: $0 /path/to/file.txt"
+fi
+

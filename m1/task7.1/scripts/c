@@ -1,0 +1,70 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+NC='\033[0m' 
+
+# generating log file name
+script_name=`echo $0 | awk -F'/' '{print $NF}'`
+LOG_FILE="/var/log/$script_name"
+
+
+createLogFileIfNotExists() {
+	if ! [ -f LOG_FILE ]; then
+		echo -n "Creating log file.."
+		sudo bash -c "touch $LOG_FILE"
+		echo "Done => $LOG_FILE"
+	fi
+}
+
+addToLog() {
+	date=$(date +"%Y-%m-%d %T")
+	line="[$date] added:[$1] rewrote:[$(echo $2)]"
+	sudo bash -c "echo $line >> $LOG_FILE"
+}
+
+backupData() {
+	identical_files=`diff -srq $1/ $2/ | grep identical | awk -F' ' '{print $2}' | awk -F'/' '{print $NF}'`
+	new_files=`diff -srq $1/ $2/ | grep "Only in $1/" | awk -F' ' '{print $NF}'`
+	echo -n "Backuping data.."
+	# backslash's used to force overwriting files
+	{`\\cp -R $1/. $2/`} &> /dev/null
+	echo "Done"
+	addToLog "$new_files" "$identical_files"
+}
+
+createCronTabIfNotExists() {
+	{`! (crontab -l | grep -q "$(realpath $0) $1 $2") && (crontab -l; echo "* * * * * $(realpath $0) $1 $2") | crontab -`} &> /dev/null
+}
+
+runBackupProcess() {
+	createLogFileIfNotExists
+	backupData "$1" "$2"
+	createCronTabIfNotExists "$1" "$2"
+}
+
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+	echo "Use: $0 /path/to/syncing_directory /path/to/save_directory"
+else
+	if [ $1 == $2 ]; then
+		echo -e ${RED}"Directories $1 and $2 are identical"${NC}
+	else
+		paths=()
+		for ((i=0; i<2; i++)) do
+			if ! [ -d "$1" ]; then
+				echo -e ${RED}"option"$((++i))": $1 is not a directory"${NC}
+			else
+				paths[i]=$1
+			fi
+			shift
+		done
+		
+		# if paths length equals 2
+		if [ ${#paths[*]} -eq 2 ]; then
+			runBackupProcess "${paths[0]}" "${paths[1]}"
+		fi
+	fi
+fi
+
+
+
