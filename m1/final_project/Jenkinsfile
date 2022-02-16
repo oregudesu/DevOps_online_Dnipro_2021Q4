@@ -20,10 +20,16 @@ pipeline {
             steps {
                 echo "Testing.."
                 bat 'run_tests.bat'
-                stash includes: '*', name: 'tg_bot'
             }
         }
         
+        stage('StashWorkDir') {
+            steps {
+                echo "Saving working directory.."
+                stash includes: '*', name: 'tg_bot'
+            }
+        }
+
         stage('Deploy_on_dev') {
             agent {
                 label 'ubuntu'
@@ -43,7 +49,7 @@ pipeline {
                 sudo python3 -m venv .venv
                 . .venv/bin/activate
                 cd src
-                echo "BOT_TOKEN=${BOT_TOKEN}\nDATABASE=${DATABASE}" | sudo tee .env
+                echo "BOT_TOKEN=${BOT_TOKEN}\nDATABASE=${DATABASE_DEV}" | sudo tee .env
                 sudo pip3 install -r requirements.txt
                 sudo systemctl stop tg_bot.service
                 sudo systemctl start tg_bot.service
