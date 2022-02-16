@@ -1,0 +1,60 @@
+pipeline {
+    agent {
+        label 'main'
+    }
+    options {
+        skipDefaultCheckout(true)
+    }
+    stages {
+        stage('GetRepo'){
+            steps {
+                echo "Getting repo.."
+                git branch: 'dev', credentialsId: 'oregudesu_github', url: 'git@github.com:oregudesu/final_project.git'
+            }
+        }
+
+        stage('UnitTests') {
+            environment {
+                DATABASE = "${env.DATABASE}"
+            }
+            steps {
+                echo "Testing.."
+                bat 'run_tests.bat'
+                stash includes: '*', name: 'tg_bot'
+            }
+        }
+        
+        stage('Deploy_on_dev') {
+            agent {
+                label 'ubuntu'
+            }
+            environment {
+                BOT_TOKEN = "${env.BOT_TOKEN}"
+                DATABASE = "${env.DATABASE}"
+            }
+            steps {
+                echo "Deploying on dev environment.."
+                unstash 'tg_bot'
+                sh '''
+                #!/bin/bash
+                sudo cp -r ./* /var/www/tg_bot/src
+                rm -r *
+                cd /var/www/tg_bot
+                sudo python3 -m venv .venv
+                . .venv/bin/activate
+                cd src
+                echo "BOT_TOKEN=${BOT_TOKEN}\nDATABASE=${DATABASE}" | sudo tee .env
+                sudo pip3 install -r requirements.txt
+                sudo systemctl stop tg_bot.service
+                sudo systemctl start tg_bot.service
+                '''
+            }
+        }
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
